@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Churn Prediction</title>
+    <style>
+        /* Apply dark background and light text */
+        body {
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Centering the content using Flexbox */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        /* Form box styling */
+        .form-box {
+            margin-top: 20px;
+            background-color: #2c2c2c;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #f39c12;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            background-color: #333;
+            color: #f1f1f1;
+            border: 1px solid #555;
+            border-radius: 5px;
+            padding: 8px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #f39c12;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #e67e22;
+        }
+
+        /* Result box styling */
+        .result-box {
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin: 0px 0px 20px 0px;
+        }
+
+        h3 {
+            color: #2ecc71;
+        }
+
+        h4 {
+            font-size: 16px;
+            color: #cccccc;
+        }
+
+        /* Add a bit of spacing between form elements */
+        input, button {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>Enter Customer Information</h2>
+            <form action="/predict" method="POST">
+                Credit Score: <input type="text" name="CreditScore" required><br>
+                Geography (France, Spain, Germany): <input type="text" name="Geography" required><br>
+                Gender (Male/Female): <input type="text" name="Gender" required><br>
+                Age: <input type="text" name="Age" required><br>
+                Tenure: <input type="text" name="Tenure" required><br>
+                Balance: <input type="text" name="Balance" required><br>
+                Num of Products: <input type="text" name="NumOfProducts" required><br>
+                Has Credit Card (1/0): <input type="text" name="HasCrCard" required><br>
+                Is Active Member (1/0): <input type="text" name="IsActiveMember" required><br>
+                Estimated Salary: <input type="text" name="EstimatedSalary" required><br><br>
+                <button type="submit">Predict</button>
+            </form>
+        </div>
+
+        {% if churn_probability %}
+        <div class="result-box">
+            <h3>Prediction: {{ prediction_text }}</h3>
+            <h4>Churn Probability (customer might exit): {{ churn_probability }}</h4>
+            <!-- Uncomment the below code to display threshold prediction and also make changes in app.py -->
+            <!-- <p>{{ threshold_prediction }}</p> -->
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
