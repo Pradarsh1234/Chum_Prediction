@@ -6,11 +6,25 @@ Customer churn is a critical issue for subscription-based businesses, including 
 The dataset consists of various features related to the bank customers, such as:
 
 -Customer ID: Unique identifier for each customer.
+
 -Age: The age of the customer.
-Gender: Male/Female.
-Account Balance: The current balance in the customer’s account.
-Credit Score: Customer's credit score.
-Number of Products: Number of products/services the customer is using.
-IsActiveMember: Whether the customer is an active member.
-Estimated Salary: The estimated yearly salary of the customer.
-Churn: A binary label (1 = churn, 0 = no churn), indicating whether the customer left the bank.
+
+-Gender: Male/Female.
+
+-Account Balance: The current balance in the customer’s account.
+
+-Credit Score: Customer's credit score.
+
+-Number of Products: Number of products/services the customer is using.
+
+-IsActiveMember: Whether the customer is an active member.
+
+-Estimated Salary: The estimated yearly salary of the customer.
+
+-Churn: A binary label (1 = churn, 0 = no churn), indicating whether the customer left the bank.
+# Model Training
+
+The Random Forest classifier was chosen due to its ability to handle complex datasets and interactions between features.
+The model was trained using a set of features like customer age, account balance, credit score, and number of products.
+# License
+This project is licensed under the MIT License.
