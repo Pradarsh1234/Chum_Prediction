@@ -6,7 +6,6 @@ Customer churn is a critical issue for subscription-based businesses, including 
 The dataset consists of various features related to the bank customers, such as:
 
 -Customer ID: Unique identifier for each customer.
-
 -Age: The age of the customer.
 Gender: Male/Female.
 Account Balance: The current balance in the customer’s account.
